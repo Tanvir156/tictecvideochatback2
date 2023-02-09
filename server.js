@@ -55,12 +55,7 @@ io.on("connection", (socket) => {
     io.to(me).emit("new game board1", ticTacToe, turn);
   });
 
-  ///update clicked
 
-  players[socket.id] = {
-    id: socket.id,
-    name: "Player " + (Object.keys(players).length + 1),
-  };
   //video call
   socket.emit("me", socket.id);
 
