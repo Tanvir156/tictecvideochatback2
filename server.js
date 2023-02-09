@@ -4,12 +4,12 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://tic-tec-toe-game.onrender.com");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 const corsOptions ={
-    origin:'https://tic-tec-toe-game.onrender.com', 
+    origin:'http://localhost:3000', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
@@ -21,7 +21,7 @@ const server = app.listen(5000, console.log("server is running at port 5000"));
 const io = require("socket.io")(server, {
   pingTimeout: 6000,
   cors: {
-    origin: "https://tic-tec-toe-game.onrender.com",
+    origin: "http://localhost:3000",
   },
 });
 io.on("connection", (socket) => {
